@@ -42,7 +42,7 @@ app.post('/campsites/:campsiteId', (req, res) => {
     res.statusCode = 403;
     res.end(`POST operation not supported on /campsites/${req.params.campsiteId}`);
 });
-
+//Echo back jsom formatted
 app.put('/campsites/:campsiteId', (req, res) => {
     res.write(`Updating the campsite: ${req.params.campsiteId}\n`);
     res.end(`Will update the campsite: ${req.body.name}
