@@ -1,14 +1,22 @@
 const express = require('express');
+const morgan = require('morgan');
 
 const hostname = 'localhost';
 const port = 3000;
 //Call express which will return express server application
 const app = express();
+//Configure morgan using development version
+app.use(morgan('dev'));
+
+//__direname - absolute path current directorhy
+//Set express to serve statis files
+app.use(express.static(__dirname + '/public'));
+
+
 //Takes callback function middleware
 //has access to req, res, next(don't need it now)
 
 app.use((req, res) => {
-    console.log(req.headers);
     res.statusCode = 200;
     //Content type text/html
     res.setHeader('Content-Type', 'text/html');
